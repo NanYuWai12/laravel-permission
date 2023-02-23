@@ -36,13 +36,13 @@ class RolesController extends Controller
 
             DB::commit();
 
-            return to_route('admin.role.index')->with(['message' => 'Role & Permission created successfully!']);
+            return to_route('roles.index')->with(['message' => 'Role & Permission created successfully!']);
 
         } catch (Throwable $th) {
             Log::error(__CLASS__ . '::' . __FUNCTION__ . '[line:' . __LINE__ . '][Role creating failed] Message:' . $th->getMessage());
             DB::rollBack();
 
-            return to_route('admin.role.index')->with(['message' => 'Role creating failed']);
+            return to_route('roles.index')->with(['message' => 'Role creating failed']);
         }
 
     }
@@ -63,7 +63,7 @@ class RolesController extends Controller
             Log::error(__CLASS__ . '::' . __FUNCTION__ . '[line:' . __LINE__ . '][Role editing page failed] Message:' . $th->getMessage());
             DB::rollBack();
 
-            return to_route('admin.role.index')->with(['message' => 'Role editing page failed']);
+            return to_route('roles.index')->with(['message' => 'Role editing page failed']);
         }
     }
 
@@ -81,13 +81,13 @@ class RolesController extends Controller
 
             DB::commit();
 
-            return to_route('admin.role.index')->with(['message' => 'Role & Permission updated successfully!']);
+            return to_route('roles.index')->with(['message' => 'Role & Permission updated successfully!']);
 
         } catch (Throwable $th) {
             Log::error(__CLASS__ . '::' . __FUNCTION__ . '[line:' . __LINE__ . '][Role updating failed] Message:' . $th->getMessage());
             DB::rollBack();
 
-            return to_route('admin.role.index')->with(['message' => 'Role updating failed']);
+            return to_route('roles.index')->with(['message' => 'Role updating failed']);
         }
     }
 
